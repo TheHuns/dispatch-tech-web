@@ -1,0 +1,73 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Global Container/wrapper for whole app
+.outer-container {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  grid-template-columns: 25% 1fr;
+}
+
+// Main Navbar on the left
+.navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  border-right: #656668 1px solid;
+
+  .brand {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 50px;
+    padding-left: 1rem;
+
+    h3 {
+      color: #2f3031;
+      padding-left: 1rem;
+      font-weight: 400;
+      span {
+        font-weight: 700;
+      }
+    }
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 0;
+
+    a {
+      margin-bottom: 1.5rem;
+      padding-left: 2rem;
+      display: flex;
+      justify-content: flex-start;
+      text-decoration: none;
+      color: #2f3031;
+      span {
+        padding-left: 1rem;
+      }
+    }
+  }
+}
+
+// HEADER
+// over main content diplays login info
+.header {
+  width: 100%;
+  height: 50px;
+  background: #2f3031;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 2rem;
+  align-items: center;
+
+  h5 {
+    color: #f4f4f4;
+    padding: 0 1rem;
+  }
+}
