@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
 }
 
 // Global Container/wrapper for whole app
@@ -10,7 +11,7 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-  grid-template-columns: 25% 1fr;
+  grid-template-columns: auto 1fr;
 }
 
 // Main Navbar on the left
@@ -18,6 +19,9 @@
   display: flex;
   flex-direction: column;
   border-right: #656668 1px solid;
+  min-width: 280px;
+  max-width: 340px;
+  box-shadow: 2px 3px 7px 7px #87888a;
 
   .brand {
     display: flex;
@@ -32,6 +36,7 @@
       font-weight: 400;
       span {
         font-weight: 700;
+        color: #dd5735;
       }
     }
   }
@@ -41,8 +46,12 @@
     flex-direction: column;
     padding: 3rem 0;
 
+    .active-link {
+      border-left: 3px solid #dd5735;
+    }
+
     a {
-      margin-bottom: 1.5rem;
+      padding: 1rem 0;
       padding-left: 2rem;
       display: flex;
       justify-content: flex-start;
@@ -66,8 +75,67 @@
   padding-right: 2rem;
   align-items: center;
 
+  img {
+    border-radius: 50%;
+  }
+
   h5 {
     color: #f4f4f4;
     padding: 0 1rem;
+  }
+}
+
+// DASHBOARD
+// 1st of the main components controlled by switch
+.dashboard-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: 10% 20% 1fr;
+
+  h3 {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .card-wrapper {
+    display: flex;
+    justify-content: space-around;
+
+    .card-container {
+      width: 25%;
+      height: 120px;
+      background: #d8453b;
+      display: flex;
+
+      .icon-left {
+        display: flex;
+        width: 30%;
+        border-right: 1px solid #b2b2b250;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .right-column {
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+
+        .number {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50%;
+          border-bottom: 1px solid #b2b2b250;
+        }
+        .name {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 50%;
+        }
+      }
+    }
   }
 }

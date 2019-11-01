@@ -20,7 +20,7 @@ export default function Navbar() {
         </h3>
       </div>
       <nav>
-        <Link to="#">
+        <Link to="#" className="active-link">
           <FontAwesomeIcon icon={faChartLine} className="nav-icon" />
           <span>Dashboard</span>
         </Link>
