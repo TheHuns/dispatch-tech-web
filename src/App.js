@@ -1,14 +1,20 @@
 import React from "react";
 import "./App.css";
+import Navbar from './components/Navbar';
+import {BrowserRouter as Router, Switch} from 'react-router-dom'
+import MainDisplay from "./components/MainDisplay";
 
 function App() {
   return (
-    <div className="bg-dark">
-      <h1 className="text-lg-center text-uppercase font-weight-bold">
-        Tech Dispatch
-      </h1>
-      <button className="btn btn-primary">Button</button>
+    <Router>
+
+    <div className="bg-dark container-fluid h-100" style={{height: '100vh'}}>
+      <div className='row h-100'>
+      <Navbar />
+      <MainDisplay />
+      </div>
     </div>
+    </Router>
   );
 }
 
