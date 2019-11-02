@@ -5,6 +5,7 @@ import {
   faChartBar,
   faUserClock
 } from "@fortawesome/free-solid-svg-icons";
+import MapComponent from "./Map";
 
 export default function Dashboard() {
   return (
@@ -30,6 +31,7 @@ export default function Dashboard() {
           grid="3"
         />
       </div>
+      <MapComponent />
     </div>
   );
 }

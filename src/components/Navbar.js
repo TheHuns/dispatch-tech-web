@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClock,
@@ -20,26 +20,22 @@ export default function Navbar() {
         </h3>
       </div>
       <nav>
-        <Link to="#" className="active-link">
+        <NavLink exact to="/" activeClassName="active">
           <FontAwesomeIcon icon={faChartLine} className="nav-icon" />
           <span>Dashboard</span>
-        </Link>
-        <Link to="#">
+        </NavLink>
+        <NavLink to="/techs" activeClassName="active">
           <FontAwesomeIcon icon={faPersonBooth} className="nav-icon" />
           <span>Techs on Duty</span>
-        </Link>
-        <Link to="#">
+        </NavLink>
+        <NavLink to="/ticketForm" activeClassName="active">
           <FontAwesomeIcon icon={faPen} className="nav-icon" />
-          <span>Create Service Request</span>
-        </Link>
-        <Link to="#">
+          <span>Create Ticket</span>
+        </NavLink>
+        <NavLink to="/search" activeClassName="active">
           <FontAwesomeIcon icon={faSearch} className="nav-icon" />
-          <span>Search Closed Services</span>
-        </Link>
-        <Link to="#">
-          <FontAwesomeIcon icon={faClock} className="nav-icon" />
-          <span>Logout</span>
-        </Link>
+          <span>Search All Tickets</span>
+        </NavLink>
       </nav>
     </div>
   );

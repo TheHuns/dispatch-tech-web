@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function NumberCard({ icon, count, name }) {
   return (
-    <div className="card-container">
+    <div className="card">
       <div className="icon-left">
         <FontAwesomeIcon icon={icon} />
       </div>
