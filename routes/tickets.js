@@ -1,0 +1,41 @@
+const express = require("express");
+const router = express.Router();
+
+// Item model
+const Ticket = require("../models/Ticket");
+
+// @route GET api/items
+// @desc Get all items
+// @access Public
+router.get("/", (req, res) => {
+  Item.find()
+    .sort({ date: -1 })
+    .then(items => res.json(items));
+});
+
+// @route POST api/items
+// @desc Create a POST
+// @access Private
+router.post("/", (req, res) => {
+  const newTicket = new Ticket({
+    name: req.body.name,
+    address: req.body.address,
+    city: req.body.city,
+    zip: req.body.zip,
+    dateRequested: req.body.dateRequested,
+    serviceRequested: req.body.serviceRequested
+  });
+
+  newTicket.save().then(ticket => res.json(ticket));
+});
+
+// @route DELETE api/items/:id
+// @desc Delete an item
+// @access Private
+router.delete("/:id", (req, res) => {
+  Item.findById(req.params.id)
+    .then(item => item.remove().then(() => res.json({ success: true })))
+    .catch(err => res.status(404).json({ success: false }));
+});
+
+module.exports = router;

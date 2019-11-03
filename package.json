@@ -1,39 +1,31 @@
 {
   "name": "dispatch-tech-web",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.25",
-    "@fortawesome/free-solid-svg-icons": "^5.11.2",
-    "@fortawesome/react-fontawesome": "^0.1.7",
-    "google-map-react": "^1.1.5",
-    "pigeon-maps": "^0.14.0",
-    "pigeon-marker": "^0.3.4",
-    "react": "^16.11.0",
-    "react-dom": "^16.11.0",
-    "react-fontawesome": "^1.6.1",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.2.0"
-  },
+  "version": "1.0.0",
+  "description": "full stack web portion of diapatchatech",
+  "main": "server.js",
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "client-install": "npm install --prefix client",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheHuns/dispatch-tech-web.git"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "author": "Dehn Hunsworth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TheHuns/dispatch-tech-web/issues"
+  },
+  "homepage": "https://github.com/TheHuns/dispatch-tech-web#readme",
+  "dependencies": {
+    "concurrently": "^5.0.0",
+    "config": "^3.2.4",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.7"
   }
 }
