@@ -34,7 +34,7 @@ export default function Navbar() {
         </NavLink>
         <NavLink to="/search" activeClassName="active">
           <FontAwesomeIcon icon={faSearch} className="nav-icon" />
-          <span>Search All Tickets</span>
+          <span>Tickets</span>
         </NavLink>
       </nav>
     </div>
