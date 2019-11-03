@@ -1,5 +1,4 @@
 import React from "react";
-import sadface from "../assets/sadface.jpg";
 
 export default function Header() {
   return (

@@ -3,7 +3,7 @@ import Header from "./Header";
 import Dashboard from "./dashboard/Dashboard";
 import { Switch, Route } from "react-router-dom";
 import Techs from "./techsOnDuty/Techs";
-import TicketForm from "./createRequest/TicketForm";
+import TicketForm from "./createTicket/TicketForm";
 import Search from "./search/Search";
 
 export default function MainDisplay() {
