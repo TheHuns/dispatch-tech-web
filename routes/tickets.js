@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const cors = require("cors");
 
 // Item model
 const Ticket = require("../models/Ticket");
@@ -7,8 +8,8 @@ const Ticket = require("../models/Ticket");
 // @route GET api/items
 // @desc Get all items
 // @access Public
-router.get("/", (req, res) => {
-  Item.find()
+router.get("/", cors(), (req, res) => {
+  Ticket.find()
     .sort({ date: -1 })
     .then(items => res.json(items));
 });

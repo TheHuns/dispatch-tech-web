@@ -1,7 +1,20 @@
 import React from "react";
 import Ticket from "./Ticket";
+import axios from "axios";
 
 export default class Search extends React.Component {
+  state = {
+    tickets: []
+  };
+
+  componentDidMount() {
+    fetch("/tickets").then(res => {
+      const tickets = res.data;
+      this.setState({ tickets });
+      console.log(this.state.tickets);
+    });
+  }
+
   render() {
     const fakeTickets = [
       {

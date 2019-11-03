@@ -12,6 +12,7 @@
     "pigeon-maps": "^0.14.0",
     "pigeon-marker": "^0.3.4",
     "react": "^16.11.0",
+    "react-datetime-picker": "^2.7.1",
     "react-dom": "^16.11.0",
     "react-fontawesome": "^1.6.1",
     "react-router-dom": "^5.1.2",
@@ -37,5 +38,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "proxy": "http://localhost:5000"
 }

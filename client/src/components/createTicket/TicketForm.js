@@ -1,4 +1,6 @@
 import React from "react";
+import axios from "axios";
+import DateTimePicker from "react-datetime-picker";
 
 export default class TicketForm extends React.Component {
   state = {
@@ -6,8 +8,9 @@ export default class TicketForm extends React.Component {
     address: "",
     city: "",
     zip: "",
-    dateRequested: "",
-    serviceRequested: ""
+    dateRequested: null,
+    serviceRequested: "",
+    date: new Date()
   };
 
   change = e => {
@@ -16,11 +19,52 @@ export default class TicketForm extends React.Component {
     });
   };
 
+  onSubmit = e => {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log(e.keyCode);
+
+    let {
+      name,
+      address,
+      city,
+      zip,
+      dateRequested,
+      serviceRequested
+    } = this.state;
+
+    if (
+      name === "" ||
+      address === "" ||
+      city === "" ||
+      zip === "" ||
+      dateRequested === "" ||
+      serviceRequested === ""
+    ) {
+      return console.log("fill in all blanks of form");
+    } else {
+      const ticket = {
+        name,
+        address,
+        city,
+        zip,
+        dateRequested,
+        serviceRequested
+      };
+      axios
+        .post("localhost:5000/tickets", { mode: "cors" }, { ticket })
+        .then(res => {
+          const tickets = res.data;
+          console.log(tickets);
+        });
+    }
+  };
+
   render() {
     return (
       <div className="ticket-form-wrapper">
         <h2>Create Ticket Form</h2>
-        <form action="">
+        <form action="post" onSubmit={e => this.onSubmit(e)}>
           <div className="left-column">
             <label htmlFor="name">Customer Name</label>
             <input type="text" name="name" onChange={e => this.change(e)} />
@@ -33,12 +77,24 @@ export default class TicketForm extends React.Component {
           </div>
           <div className="right-column">
             <label htmlFor="date">Date requested</label>
-            <input
-              type="datetime"
+            <DateTimePicker
+              name="dateRequested"
+              onChange={this.onChange}
+              value={
+                this.state.dateRequested
+                  ? this.state.dateRequested
+                  : this.state.date
+              }
+            />
+            {/* <input
+              type="datetime-local"
+              value={Date.now}
+              min="2018-06-07T00:00"
+              max="2020-06-14T00:00"
               name="dateRequested"
               id="date"
               onChange={e => this.change(e)}
-            />
+            /> */}
             <label htmlFor="service">Service Requested</label>
             <textarea
               name="serviceRequested"
