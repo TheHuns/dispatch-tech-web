@@ -17,11 +17,11 @@ const TicketSchema = new Schema({
   },
   zip: {
     type: Number,
-    required: true
+    required: false
   },
   dateRequested: {
     type: Date,
-    required: true
+    required: false
   },
   serviceRequested: {
     type: String,

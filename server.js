@@ -12,6 +12,11 @@ app.use(express.json());
 // Allow CORS
 app.use(cors());
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 // DB Config
 const db = config.get("mongoURI");
 

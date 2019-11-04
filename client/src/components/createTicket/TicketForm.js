@@ -7,7 +7,7 @@ export default class TicketForm extends React.Component {
     name: "",
     address: "",
     city: "",
-    zip: "",
+    zip: 0,
     dateRequested: null,
     serviceRequested: "",
     date: new Date()
@@ -43,7 +43,7 @@ export default class TicketForm extends React.Component {
     ) {
       return console.log("fill in all blanks of form");
     } else {
-      const ticket = {
+      let ticket = {
         name,
         address,
         city,
@@ -51,12 +51,14 @@ export default class TicketForm extends React.Component {
         dateRequested,
         serviceRequested
       };
-      axios
-        .post("localhost:5000/tickets", { mode: "cors" }, { ticket })
-        .then(res => {
-          const tickets = res.data;
-          console.log(tickets);
-        });
+      console.log(JSON.stringify(ticket))
+      fetch("/tickets", {
+        method: 'post',
+        headers: {'Content-Type':'application/json'},
+        body: JSON.stringify(ticket)
+      })
+        .then(res => res.json())
+        .then(data => console.log(data))
     }
   };
 
