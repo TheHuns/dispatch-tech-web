@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function Ticket({ name, address, date, service }) {
+export default function Ticket({ name, address, date, service, index }) {
   return (
     <div className="ticket-container">
+      <h3>{index + 1 + "."}</h3>
       <div className="name">
         <strong>Name: </strong>
         <p>{name}</p>
@@ -15,6 +16,7 @@ export default function Ticket({ name, address, date, service }) {
         <strong>Service: </strong>
         <p>{service}</p>
       </div>
+      <button>Details</button>
     </div>
   );
 }

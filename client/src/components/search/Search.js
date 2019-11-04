@@ -1,7 +1,7 @@
 import React from "react";
 import Ticket from "./Ticket";
 import axios from "axios";
-import * as Spinner from 'react-spinkit'
+import * as Spinner from "react-spinkit";
 
 export default class Search extends React.Component {
   state = {
@@ -10,29 +10,27 @@ export default class Search extends React.Component {
   };
 
   componentDidMount() {
-    this.setState({isLoading: true})
+    this.setState({ isLoading: true });
 
     fetch("/tickets")
-    .then(res => res.json())
-    .then(data => this.setState({tickets: data, isLoading: false}))
-    
+      .then(res => res.json())
+      .then(data => this.setState({ tickets: data, isLoading: false }));
   }
 
   render() {
-    const {tickets, isLoading} = this.state;
+    const { tickets, isLoading } = this.state;
     if (isLoading) {
-      return <Spinner className='spinner' name='three-bounce' color='coral'/>;
+      return <Spinner className="spinner" name="three-bounce" color="coral" />;
     }
-      
-    
 
     return (
       <div className="ticket-list-wrapper">
-        <h2>Ticket search form</h2>
-        
+        <h2>Current Open Tickets</h2>
+
         {tickets.map((ticket, index) => {
           return (
             <Ticket
+              index={index}
               key={index}
               name={ticket.name}
               date={ticket.dateRequested}

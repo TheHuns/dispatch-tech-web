@@ -177,9 +177,20 @@
       box-shadow: 3px 2px 2px 2px #b2b2b293;
       border-radius: 0.5em;
     }
+    .react-datetime-picker__wrapper {
+      border: 0.5px solid #b2b2b293;
+      box-shadow: 3px 2px 2px 2px #b2b2b293;
+      width: 100%;
+      border-radius: 0.5em;
+      margin-bottom: 1rem;
+      input {
+        border: none;
+        box-shadow: none;
+      }
+    }
 
     textarea {
-      height: 100%;
+      height: 90%;
     }
 
     .left-column {
@@ -218,10 +229,58 @@
 }
 
 // SEARCH PAGE
+.spinner {
+  position: absolute;
+  left: 45%;
+  top: 30%;
+}
 .ticket-list-wrapper {
   width: 100%;
   height: 100%;
   padding: 2rem 4rem;
-  display: grid; 
-  grid-template-rows: 10% 1fr;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+
+  h2 {
+    display: inline-block;
+    width: 100%;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+  }
+
+  .ticket-container {
+    width: 90%;
+    display: flex;
+    margin-bottom: 1rem;
+    border: 1px solid #b2b2b250;
+    box-shadow: 3px 2px 2px 2px #b2b2b293;
+    border-radius: 0.5em 0.5em;
+    align-items: center;
+
+    h3 {
+      font-size: 0.8rem;
+      padding: 0 1rem;
+    }
+
+    .name,
+    .address,
+    .service {
+      width: 25%;
+
+      strong {
+        font-size: 0.8rem;
+      }
+    }
+
+    button {
+      padding: 5px 8px;
+      border-radius: 0.5em;
+      margin: 0.2rem 0;
+      color: #4d4b4b;
+      font-size: 1rem;
+      font-weight: 200;
+      background: #35bbdd7e;
+    }
+  }
 }

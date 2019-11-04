@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
+import { Redirect } from "react-router-dom";
 
 export default class TicketForm extends React.Component {
   state = {
@@ -8,10 +9,15 @@ export default class TicketForm extends React.Component {
     address: "",
     city: "",
     zip: 0,
-    dateRequested: null,
-    serviceRequested: "",
-    date: new Date()
+    dateRequested: new Date(),
+    serviceRequested: ""
   };
+
+  rerouteToTickets = () => {
+    this.props.history.push("/search");
+  };
+
+  onDateChange = date => this.setState({ date });
 
   change = e => {
     this.setState({
@@ -51,14 +57,16 @@ export default class TicketForm extends React.Component {
         dateRequested,
         serviceRequested
       };
-      console.log(JSON.stringify(ticket))
+      console.log(JSON.stringify(ticket));
       fetch("/tickets", {
-        method: 'post',
-        headers: {'Content-Type':'application/json'},
+        method: "post",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(ticket)
       })
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => console.log(data));
+
+      this.rerouteToTickets();
     }
   };
 
@@ -81,22 +89,11 @@ export default class TicketForm extends React.Component {
             <label htmlFor="date">Date requested</label>
             <DateTimePicker
               name="dateRequested"
-              onChange={this.onChange}
-              value={
-                this.state.dateRequested
-                  ? this.state.dateRequested
-                  : this.state.date
-              }
+              onChange={this.onDateChange}
+              value={this.state.dateRequested}
+              hourAriaLabel="true"
+              dayAriaLable="true"
             />
-            {/* <input
-              type="datetime-local"
-              value={Date.now}
-              min="2018-06-07T00:00"
-              max="2020-06-14T00:00"
-              name="dateRequested"
-              id="date"
-              onChange={e => this.change(e)}
-            /> */}
             <label htmlFor="service">Service Requested</label>
             <textarea
               name="serviceRequested"
