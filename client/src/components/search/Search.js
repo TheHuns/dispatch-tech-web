@@ -35,7 +35,7 @@ export default class Search extends React.Component {
             <Ticket
               key={index}
               name={ticket.name}
-              date={ticket.date}
+              date={ticket.dateRequested}
               service={ticket.serviceRequested}
               address={ticket.address}
             />

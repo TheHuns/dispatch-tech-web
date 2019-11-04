@@ -216,3 +216,12 @@
     }
   }
 }
+
+// SEARCH PAGE
+.ticket-list-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 4rem;
+  display: grid; 
+  grid-template-rows: 10% 1fr;
+}
