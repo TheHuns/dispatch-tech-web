@@ -34,8 +34,8 @@ router.post("/", (req, res) => {
 // @desc Delete an item
 // @access Private
 router.delete("/:id", (req, res) => {
-  Item.findById(req.params.id)
-    .then(item => item.remove().then(() => res.json({ success: true })))
+  Ticket.findById(req.params.id)
+    .then(ticket => ticket.remove().then(() => res.json(ticket)))
     .catch(err => res.status(404).json({ success: false }));
 });
 

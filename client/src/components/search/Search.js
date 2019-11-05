@@ -1,6 +1,5 @@
 import React from "react";
 import Ticket from "./Ticket";
-import axios from "axios";
 import * as Spinner from "react-spinkit";
 
 export default class Search extends React.Component {
@@ -16,6 +15,10 @@ export default class Search extends React.Component {
       .then(res => res.json())
       .then(data => this.setState({ tickets: data, isLoading: false }));
   }
+
+  reloadTickets = () => {
+    this.props.history.push("/search");
+  };
 
   render() {
     const { tickets, isLoading } = this.state;
@@ -36,6 +39,8 @@ export default class Search extends React.Component {
               date={ticket.dateRequested}
               service={ticket.serviceRequested}
               address={ticket.address}
+              id={ticket._id}
+              reloadTickets={this.reloadTickets}
             />
           );
         })}
