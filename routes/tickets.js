@@ -33,10 +33,10 @@ router.post("/", (req, res) => {
 // @route DELETE api/items/:id
 // @desc Delete an item
 // @access Private
-router.delete("/:id", (req, res) => {
-  Ticket.findById(req.params.id)
+router.delete("/", (req, res) => {
+  Ticket.findById(req.body.id)
     .then(ticket => ticket.remove().then(() => res.json(ticket)))
-    .catch(err => res.status(404).json({ success: false }));
+    .catch(err => res.status(err).json({ success: false }));
 });
 
 module.exports = router;

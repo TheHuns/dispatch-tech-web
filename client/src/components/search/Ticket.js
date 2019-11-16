@@ -1,13 +1,12 @@
 import React from "react";
+import TicketContext from "../../Context";
 
 export default class Ticket extends React.Component {
+  static contextType = TicketContext;
+
   onDelete = id => {
     console.log(id);
-    fetch(`/tickets/:${id}`, {
-      method: "delete"
-    })
-      .then(res => res.json())
-      .then(data => console.log("the folloding has been deleted" + data));
+    this.context.deleteTicket(id);
 
     this.props.reloadTickets();
   };
@@ -29,7 +28,6 @@ export default class Ticket extends React.Component {
           <strong>Service: </strong>
           <p>{service}</p>
         </div>
-        <p>{id}</p>
         <button>Details</button>
         <button onClick={this.onDelete.bind(this, id)}>Delete</button>
       </div>

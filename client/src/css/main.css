@@ -24,11 +24,11 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-right: #6566689b 1px solid;
+  border-right: #6566686e 1px solid;
   min-width: 280px;
   max-width: 340px;
-  -webkit-box-shadow: 2px 3px 7px 7px #87888a96;
-          box-shadow: 2px 3px 7px 7px #87888a96;
+  -webkit-box-shadow: 4px 3px 5px 4px #87888a54;
+          box-shadow: 4px 3px 5px 4px #87888a54;
 }
 
 .navbar-wrapper .brand {
@@ -127,6 +127,8 @@
   display: grid;
   -ms-grid-rows: 10% 20% 1fr;
       grid-template-rows: 10% 20% 1fr;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .dashboard-wrapper h3 {
@@ -237,20 +239,20 @@
 
 .ticket-form-wrapper form input,
 .ticket-form-wrapper form textarea {
-  margin-bottom: 2rem;
-  padding: 5px;
-  border: 0.5px solid #b2b2b293;
-  -webkit-box-shadow: 3px 2px 2px 2px #b2b2b293;
-          box-shadow: 3px 2px 2px 2px #b2b2b293;
-  border-radius: 0.5em;
+  margin-bottom: 3rem;
+  padding: 15px 5px;
+  border: none;
+  border-bottom: 1px solid #b2b2b293;
+  -webkit-box-shadow: -1px 3px 3px 0 #b2b2b293;
+          box-shadow: -1px 3px 3px 0 #b2b2b293;
 }
 
 .ticket-form-wrapper form .react-datetime-picker__wrapper {
-  border: 0.5px solid #b2b2b293;
-  -webkit-box-shadow: 3px 2px 2px 2px #b2b2b293;
-          box-shadow: 3px 2px 2px 2px #b2b2b293;
+  border: none;
+  border-bottom: 0.5px solid #b2b2b293;
+  -webkit-box-shadow: -1px 3px 3px 0 #b2b2b293;
+          box-shadow: -1px 3px 3px 0 #b2b2b293;
   width: 100%;
-  border-radius: 0.5em;
   margin-bottom: 1rem;
 }
 
@@ -258,10 +260,11 @@
   border: none;
   -webkit-box-shadow: none;
           box-shadow: none;
+  padding: 0 5px;
 }
 
 .ticket-form-wrapper form textarea {
-  height: 90%;
+  height: 100%;
 }
 
 .ticket-form-wrapper form .left-column {
@@ -328,6 +331,8 @@
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  max-width: 1400px;
+  margin: auto;
 }
 
 .ticket-list-wrapper h2 {
@@ -350,6 +355,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  padding: 0.6rem;
 }
 
 .ticket-list-wrapper .ticket-container h3 {
@@ -372,7 +378,7 @@
 .ticket-list-wrapper .ticket-container button {
   padding: 5px 8px;
   border-radius: 0.5em;
-  margin: 0.2rem 0;
+  margin: 0.2rem 1rem;
   color: #4d4b4b;
   font-size: 1rem;
   font-weight: 200;
