@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import NumberCard from "./NumberCard";
 import {
   faTicketAlt,
@@ -7,8 +7,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import MapComponent from "./Map";
 import { useSelector } from "react-redux";
+import * as ticketActions from '../../store/actions/tickets'
 
 export default function Dashboard() {
+  useEffect(() => {
+    ticketActions.getTickets();
+    
+  })
+
   const tickets = useSelector(state => state.tickets.tickets);
 
   return (
