@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Ticket from "./Ticket";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+
+import { getTickets } from "../../store/actions/tickets";
 
 const Search = props => {
   const tickets = useSelector(state => state.tickets.tickets);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getTickets());
+  });
 
   const reloadTickets = () => {
     props.history.push("/");

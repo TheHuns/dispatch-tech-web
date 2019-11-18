@@ -1,4 +1,4 @@
-import {GET_TICKETS} from '../actions/tickets'
+import { GET_TICKETS, ADD_TICKET, DELETE_TICKET } from "../actions/tickets";
 
 const initialState = {
   tickets: [],
@@ -6,20 +6,20 @@ const initialState = {
 };
 
 export default (state = initialState, action) => {
-  switch(action.type){
-
+  switch (action.type) {
     case GET_TICKETS:
-      let ticketList;
-      fetch('/tickets', {
-        method: "GET"
-      }).then(res => res.json())
-      .then(data => ticketList = data)
       return {
         ...state,
-        tickets: ticketList
-      }
+        tickets: action.payload
+      };
 
-      default:
-        return state;
+    case ADD_TICKET:
+      return { ...state };
+
+    case DELETE_TICKET:
+      return { ...state };
+
+    default:
+      return state;
   }
 };

@@ -2,8 +2,11 @@ import React from "react";
 import axios from "axios";
 import DateTimePicker from "react-datetime-picker";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { addTicket } from "../../store/actions/tickets";
+import tickets from "../../store/reducers/tickets";
 
-export default class TicketForm extends React.Component {
+class TicketForm extends React.Component {
   state = {
     name: "",
     address: "",
@@ -57,14 +60,15 @@ export default class TicketForm extends React.Component {
         dateRequested,
         serviceRequested
       };
-      console.log(JSON.stringify(ticket));
-      fetch("/tickets", {
-        method: "post",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(ticket)
-      })
-        .then(res => res.json())
-        .then(data => console.log(data));
+      // console.log(JSON.stringify(ticket));
+      // fetch("/tickets", {
+      //   method: "post",
+      //   headers: { "Content-Type": "application/json" },
+      //   body: JSON.stringify(ticket)
+      // })
+      //   .then(res => res.json())
+      //   .then(data => console.log(data));
+      this.props.addTicket(ticket);
 
       this.rerouteToTickets();
     }
@@ -116,3 +120,12 @@ export default class TicketForm extends React.Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return { tickets: state.tickets };
+};
+const mapDispatchToProps = {
+  addTicket
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TicketForm);
