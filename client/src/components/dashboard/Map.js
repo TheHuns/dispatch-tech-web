@@ -20,7 +20,7 @@ const data = [
 export default class MapComponent extends Component {
   render() {
     return (
-      <Map center={[37.25, -107.6997]} zoom={11} height={"90%"}>
+      <Map center={[37.25, -107.6997]} zoom={11} height="60vh">
         {data.map((marker, index) => (
           <Marker anchor={[marker.lat, marker.long]} key={index} />
         ))}

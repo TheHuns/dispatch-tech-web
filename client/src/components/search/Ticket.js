@@ -1,36 +1,30 @@
 import React from "react";
-import TicketContext from "../../Context";
+import { useDispatch } from "react-redux";
 
-export default class Ticket extends React.Component {
-  static contextType = TicketContext;
+import { deleteTicket } from "../../store/actions/tickets";
 
-  onDelete = id => {
-    console.log(id);
-    this.context.deleteTicket(id);
+const Ticket = ({ index, name, address, service, id }) => {
+  const dispatch = useDispatch();
 
-    this.props.reloadTickets();
-  };
-
-  render() {
-    const { index, name, address, service, id } = this.props;
-    return (
-      <div className="ticket-container">
-        <h3>{index + 1 + "."}</h3>
-        <div className="name">
-          <strong>Name: </strong>
-          <p>{name}</p>
-        </div>
-        <div className="address">
-          <strong>Address: </strong>
-          <p>{address}</p>
-        </div>
-        <div className="service">
-          <strong>Service: </strong>
-          <p>{service}</p>
-        </div>
-        <button>Details</button>
-        <button onClick={this.onDelete.bind(this, id)}>Delete</button>
+  return (
+    <div className="ticket-container">
+      <h3>{index + 1 + "."}</h3>
+      <div className="name">
+        <strong>Name: </strong>
+        <p>{name}</p>
       </div>
-    );
-  }
-}
+      <div className="address">
+        <strong>Address: </strong>
+        <p>{address}</p>
+      </div>
+      <div className="service">
+        <strong>Service: </strong>
+        <p>{service}</p>
+      </div>
+      <button>Details</button>
+      <button onClick={() => dispatch(deleteTicket(id))}>Delete</button>
+    </div>
+  );
+};
+
+export default Ticket;
