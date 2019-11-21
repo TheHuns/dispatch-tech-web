@@ -7,17 +7,15 @@ const TicketSchema = new Schema({
     type: String,
     required: true
   },
-  address: {
+  autoAddress: {
     type: String,
-    required: true
-  },
-  city: {
-    type: String,
-    required: true
-  },
-  zip: {
-    type: Number,
     required: false
+  },
+  lat: {
+    type: Number
+  },
+  lng: {
+    type: Number
   },
   dateRequested: {
     type: Date,

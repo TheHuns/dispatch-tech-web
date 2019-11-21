@@ -1,24 +1,15 @@
 import React from "react";
-import axios from "axios";
-import DateTimePicker from "react-datetime-picker";
-import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTicket } from "../../store/actions/tickets";
-import tickets from "../../store/reducers/tickets";
 
 import PlacesAutocomplete from "react-places-autocomplete";
-import {
-  geocodeByAddress,
-  geocodeByPlaceId,
-  getLatLng
-} from "react-places-autocomplete";
+import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 class TicketForm extends React.Component {
   state = {
     name: "",
-    address: "",
-    city: "",
-    zip: 0,
+    lat: null,
+    long: null,
     dateRequested: new Date(),
     serviceRequested: "",
     autoAddress: ""
@@ -37,7 +28,12 @@ class TicketForm extends React.Component {
   handleSelect = address => {
     geocodeByAddress(address)
       .then(results => getLatLng(results[0]))
-      .then(latLng => console.log("Success", latLng))
+      .then(latLng =>
+        this.setState({
+          lat: latLng.lat,
+          long: latLng.lng
+        })
+      )
       .catch(error => console.error("Error", error));
   };
   change = e => {
@@ -49,47 +45,41 @@ class TicketForm extends React.Component {
   onSubmit = e => {
     e.preventDefault();
     e.stopPropagation();
-    console.log(e.keyCode);
 
     let {
       name,
-      address,
-      city,
-      zip,
+      lat,
+      long,
+      autoAddress,
       dateRequested,
       serviceRequested
     } = this.state;
 
-    if (
-      name === "" ||
-      address === "" ||
-      city === "" ||
-      zip === "" ||
-      dateRequested === "" ||
-      serviceRequested === ""
-    ) {
-      return console.log("fill in all blanks of form");
-    } else {
-      let ticket = {
-        name,
-        address,
-        city,
-        zip,
-        dateRequested,
-        serviceRequested
-      };
-      // console.log(JSON.stringify(ticket));
-      // fetch("/tickets", {
-      //   method: "post",
-      //   headers: { "Content-Type": "application/json" },
-      //   body: JSON.stringify(ticket)
-      // })
-      //   .then(res => res.json())
-      //   .then(data => console.log(data));
-      this.props.addTicket(ticket);
+    // if (
+    //   name === "" ||
+    //   address === "" ||
+    //   city === "" ||
+    //   zip === "" ||
+    //   dateRequested === "" ||
+    //   serviceRequested === ""
+    // ) {
+    //   return console.log("fill in all blanks of form");
+    // } else {
 
-      this.rerouteToTickets();
-    }
+    let ticket = {
+      name,
+      autoAddress,
+      lat,
+      long,
+      dateRequested,
+      serviceRequested
+    };
+
+    console.log(ticket);
+
+    this.props.addTicket(ticket);
+
+    this.rerouteToTickets();
   };
 
   render() {
@@ -101,7 +91,7 @@ class TicketForm extends React.Component {
           <input
             type="text"
             name="name"
-            placeholder="enter name ..."
+            placeholder="Enter name ..."
             onChange={e => this.change(e)}
           />
           <label>Address</label>
@@ -166,7 +156,7 @@ class TicketForm extends React.Component {
           <label htmlFor="service">Service Requested</label>
           <textarea
             name="serviceRequested"
-            placeholder="describe service needed ..."
+            placeholder="Describe service needed ..."
             id="service"
             cols="30"
             rows="10"

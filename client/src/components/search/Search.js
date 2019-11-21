@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Ticket from "./Ticket";
 import { useSelector, useDispatch } from "react-redux";
 
 import { getTickets } from "../../store/actions/tickets";
+import TicketDetailModal from "./TicketDetailModal";
 
 const Search = props => {
   const tickets = useSelector(state => state.tickets.tickets);
   const dispatch = useDispatch();
+
+  const [isModalOpen, setModalOpen] = useState(false);
+  const [detailIndex, setDetailIndex] = useState(null);
 
   useEffect(() => {
     dispatch(getTickets());
@@ -15,6 +19,15 @@ const Search = props => {
   const reloadTickets = () => {
     props.history.push("/");
   };
+
+  if (isModalOpen) {
+    return (
+      <TicketDetailModal
+        ticket={tickets[detailIndex]}
+        closeModal={setModalOpen}
+      />
+    );
+  }
 
   return (
     <div className="ticket-list-wrapper">
@@ -28,9 +41,11 @@ const Search = props => {
             name={ticket.name}
             date={ticket.dateRequested}
             service={ticket.serviceRequested}
-            address={ticket.address}
+            autoAddress={ticket.autoAddress}
             id={ticket._id}
             reloadTickets={reloadTickets}
+            setDetailIndex={setDetailIndex}
+            setModalOpen={setModalOpen}
           />
         );
       })}

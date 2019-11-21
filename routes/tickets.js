@@ -20,9 +20,9 @@ router.get("/", cors(), (req, res) => {
 router.post("/", (req, res) => {
   const newTicket = new Ticket({
     name: req.body.name,
-    address: req.body.address,
-    city: req.body.city,
-    zip: req.body.zip,
+    autoAddress: req.body.autoAddress,
+    lat: req.body.lat,
+    lng: req.body.long,
     dateRequested: req.body.dateRequested,
     serviceRequested: req.body.serviceRequested
   });
