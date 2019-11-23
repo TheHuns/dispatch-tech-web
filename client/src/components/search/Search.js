@@ -1,56 +1,69 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Ticket from "./Ticket";
-import { useSelector, useDispatch } from "react-redux";
+import { connect } from "react-redux";
 
 import { getTickets } from "../../store/actions/tickets";
 import TicketDetailModal from "./TicketDetailModal";
 
-const Search = props => {
-  const tickets = useSelector(state => state.tickets.tickets);
-  const dispatch = useDispatch();
-
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [detailIndex, setDetailIndex] = useState(null);
-
-  useEffect(() => {
-    dispatch(getTickets());
-  });
-
-  const reloadTickets = () => {
-    props.history.push("/");
+class Search extends React.Component {
+  state = {
+    isModalOpen: false,
+    detailIndex: 0,
+    isLoading: true,
+    tickets: []
   };
 
-  if (isModalOpen) {
-    return (
-      <TicketDetailModal
-        ticket={tickets[detailIndex]}
-        closeModal={setModalOpen}
-      />
-    );
+  componentDidMount() {
+    this.props.getTickets();
+
+    setTimeout(this.setState({ isLoading: false }), 3000);
   }
 
-  return (
-    <div className="ticket-list-wrapper">
-      <h2>Current Open Tickets</h2>
+  handleModalOpen = () => {
+    this.setState({
+      isModalOpen: !this.state.isModalOpen
+    });
+  };
 
-      {tickets.map((ticket, index) => {
-        return (
-          <Ticket
-            index={index}
-            key={index}
-            name={ticket.name}
-            date={ticket.dateRequested}
-            service={ticket.serviceRequested}
-            autoAddress={ticket.autoAddress}
-            id={ticket._id}
-            reloadTickets={reloadTickets}
-            setDetailIndex={setDetailIndex}
-            setModalOpen={setModalOpen}
+  render() {
+    if (this.state.isLoading) return <h2>Loading ...</h2>;
+
+    const { tickets } = this.props.tickets;
+    console.log(tickets);
+
+    return (
+      <div className="ticket-list-wrapper">
+        <h2>Current Open Tickets</h2>
+
+        {tickets.map((ticket, index) => {
+          return (
+            <Ticket
+              index={index}
+              key={index}
+              name={ticket.name}
+              date={ticket.dateRequested}
+              service={ticket.serviceRequested}
+              autoAddress={ticket.autoAddress}
+              id={ticket._id}
+              handleModalOpen={this.handleModalOpen}
+            />
+          );
+        })}
+        {this.state.isModalOpen ? (
+          <TicketDetailModal
+            ticket={this.props.tickets[[this.state.detailIndex]]}
           />
-        );
-      })}
-    </div>
-  );
+        ) : null}
+      </div>
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return { tickets: state.tickets };
+};
+const mapDispatchToProps = {
+  getTickets
 };
 
-export default Search;
+export default connect(mapStateToProps, mapDispatchToProps)(Search);

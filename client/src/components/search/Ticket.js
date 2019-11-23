@@ -3,15 +3,7 @@ import { useDispatch } from "react-redux";
 
 import { deleteTicket } from "../../store/actions/tickets";
 
-const Ticket = ({
-  index,
-  name,
-  autoAddress,
-  service,
-  id,
-  setDetailIndex,
-  setModalOpen
-}) => {
+const Ticket = ({ index, name, autoAddress, service, id, handleModalOpen }) => {
   const dispatch = useDispatch();
 
   return (
@@ -31,8 +23,7 @@ const Ticket = ({
       </div>
       <button
         onClick={() => {
-          setDetailIndex(index);
-          setModalOpen(true);
+          handleModalOpen();
         }}
       >
         Details

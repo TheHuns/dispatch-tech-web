@@ -55,16 +55,7 @@ class TicketForm extends React.Component {
       serviceRequested
     } = this.state;
 
-    // if (
-    //   name === "" ||
-    //   address === "" ||
-    //   city === "" ||
-    //   zip === "" ||
-    //   dateRequested === "" ||
-    //   serviceRequested === ""
-    // ) {
-    //   return console.log("fill in all blanks of form");
-    // } else {
+    //Add logic to make sure form is filled out completely
 
     let ticket = {
       name,
@@ -74,8 +65,6 @@ class TicketForm extends React.Component {
       dateRequested,
       serviceRequested
     };
-
-    console.log(ticket);
 
     this.props.addTicket(ticket);
 
@@ -138,21 +127,7 @@ class TicketForm extends React.Component {
               </div>
             )}
           </PlacesAutocomplete>
-          {/* <label htmlFor="address">Address</label>
-            <input type="text" name="address" onChange={e => this.change(e)} />
-            <label htmlFor="city">City</label>
-            <input type="text" name="city" onChange={e => this.change(e)} />
-            <label htmlFor="zip">Zipcode</label>
-            <input type="text" name="zip" onChange={e => this.change(e)} /> 
 
-          <label htmlFor="date">Date requested</label>
-           <DateTimePicker
-            name="dateRequested"
-            onChange={this.onDateChange}
-            value={this.state.dateRequested}
-            hourAriaLabel="true"
-            dayAriaLable="true"
-          /> */}
           <label htmlFor="service">Service Requested</label>
           <textarea
             name="serviceRequested"
