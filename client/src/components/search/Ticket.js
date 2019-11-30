@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { deleteTicket } from "../../store/actions/tickets";
+import { deleteTicket, setDetailTicket } from "../../store/actions/tickets";
 
-const Ticket = ({ index, name, autoAddress, service, id, handleModalOpen }) => {
+const Ticket = ({ index, name, autoAddress, service, id, history }) => {
   const dispatch = useDispatch();
+
+  const routeToDetail = () => {
+    history.push("/details");
+  };
+
+  useEffect(() => {
+    console.log(history);
+  });
 
   return (
     <div className="ticket-container">
@@ -23,12 +31,18 @@ const Ticket = ({ index, name, autoAddress, service, id, handleModalOpen }) => {
       </div>
       <button
         onClick={() => {
-          handleModalOpen();
+          routeToDetail();
+          dispatch(setDetailTicket(id));
         }}
       >
         Details
       </button>
-      <button onClick={() => dispatch(deleteTicket(id))}>Delete</button>
+      <button
+        className="delete-button"
+        onClick={() => dispatch(deleteTicket(id))}
+      >
+        Delete
+      </button>
     </div>
   );
 };

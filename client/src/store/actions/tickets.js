@@ -3,6 +3,7 @@ import axios from "axios";
 export const GET_TICKETS = "GET_TICKETS";
 export const ADD_TICKET = "ADD_TICKET";
 export const DELETE_TICKET = "DELETE_TICKET";
+export const SET_DETAIL_TICKET = "SET_DETAIL_TICKET";
 
 export const getTickets = () => dispatch => {
   axios
@@ -30,7 +31,6 @@ export const addTicket = newTicket => dispatch => {
 };
 
 export const deleteTicket = id => dispatch => {
-  console.log(id);
   axios({
     method: "DELETE",
     url: "/tickets",
@@ -45,4 +45,11 @@ export const deleteTicket = id => dispatch => {
       });
     })
     .catch(err => console.error(err));
+};
+
+export const setDetailTicket = id => dispatch => {
+  dispatch({
+    type: SET_DETAIL_TICKET,
+    payload: id
+  });
 };

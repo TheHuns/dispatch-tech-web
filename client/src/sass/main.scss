@@ -101,7 +101,7 @@
   max-width: 1400px;
   margin: auto;
 
-  h3 {
+  h2 {
     display: inline-block;
     width: 100%;
   }
@@ -156,9 +156,8 @@
 .ticket-form-wrapper {
   width: 100%;
   height: 100%;
-  padding: 2rem;
   max-width: 900px;
-  margin: auto;
+  margin: 2rem 4rem;
 
   form {
     height: 100%;
@@ -258,7 +257,6 @@
   h2 {
     display: inline-block;
     width: 100%;
-    font-size: 1.2rem;
     margin-bottom: 3rem;
   }
 
@@ -288,13 +286,104 @@
     }
 
     button {
-      padding: 5px 8px;
+      padding: 5px 20px;
       border-radius: 0.5em;
       margin: 0.2rem 1rem;
       color: #4d4b4b;
       font-size: 1rem;
-      font-weight: 200;
+      font-weight: bold;
       background: #35bbdd7e;
+    }
+    .delete-button {
+      background: rgba(206, 87, 87, 0.774);
+    }
+  }
+}
+
+// DETAIL WINDOW
+.detail-container {
+  margin: 3rem;
+  box-shadow: 4px 3px 5px 4px #87888a54;
+  border-radius: 1em;
+
+  .map-container {
+    .map {
+      border-radius: 1em;
+    }
+  }
+
+  .info-container {
+    display: flex;
+    padding: 2rem;
+    .left-column {
+      width: 50%;
+
+      h2 {
+        padding-bottom: 1rem;
+      }
+
+      .dynamic-text {
+        padding-left: 1rem;
+        font-weight: 300;
+      }
+    }
+    .right-column {
+      width: 50%;
+
+      p {
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+// TechList
+.techs-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 4rem;
+
+  max-width: 1400px;
+  margin: auto;
+
+  h2 {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .techs-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .tech-card {
+      height: 280px;
+      width: 200px;
+      border-radius: 1em;
+      box-shadow: 4px 3px 5px 4px #87888a54;
+      margin: 0 2rem;
+
+      img {
+        width: 100%;
+        height: 60%;
+        border-radius: 1em;
+      }
+
+      .info-box {
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.1rem;
+          margin-bottom: 0.4rem;
+        }
+
+        .primary-text {
+          font-size: 0.8rem;
+          color: #dd5735;
+          font-weight: 400;
+          padding-right: 5px;
+        }
+      }
     }
   }
 }
