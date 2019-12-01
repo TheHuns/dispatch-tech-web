@@ -1,8 +1,13 @@
-import { GET_TICKETS, ADD_TICKET, DELETE_TICKET } from "../actions/tickets";
+import {
+  GET_TICKETS,
+  ADD_TICKET,
+  DELETE_TICKET,
+  SET_DETAIL_TICKET
+} from "../actions/tickets";
 
 const initialState = {
   tickets: [],
-  userProducts: []
+  detailTicket: null
 };
 
 export default (state = initialState, action) => {
@@ -18,6 +23,12 @@ export default (state = initialState, action) => {
 
     case DELETE_TICKET:
       return { ...state };
+
+    case SET_DETAIL_TICKET:
+      let detailTicket = state.tickets.filter(
+        ticket => ticket._id === action.payload
+      );
+      return { ...state, detailTicket: detailTicket };
 
     default:
       return state;

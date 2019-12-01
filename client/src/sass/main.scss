@@ -101,7 +101,7 @@
   max-width: 1400px;
   margin: auto;
 
-  h3 {
+  h2 {
     display: inline-block;
     width: 100%;
   }
@@ -156,29 +156,34 @@
 .ticket-form-wrapper {
   width: 100%;
   height: 100%;
-  padding: 2rem 4rem;
-  display: grid;
-  grid-template-rows: 10% 60% 1fr;
   max-width: 900px;
-  margin: auto;
+  margin: 2rem 4rem;
 
   form {
-    display: flex;
-    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    margin-top: 3rem;
 
     label {
       margin-bottom: 1rem;
       font-weight: 500;
+      width: 100%;
+      display: inline-block;
     }
 
     input,
     textarea {
+      width: 100%;
       margin-bottom: 3rem;
       padding: 15px 5px;
       border: none;
       border-bottom: 1px solid #b2b2b293;
       box-shadow: -1px 3px 3px 0 #b2b2b293;
       // border-radius: 0.5em;
+    }
+    .autocomplete-address {
+      width: 100%;
+      margin: 0;
     }
     .react-datetime-picker__wrapper {
       border: none;
@@ -195,22 +200,22 @@
     }
 
     textarea {
-      height: 100%;
+      // height: 100%;
     }
 
-    .left-column {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      padding-right: 1rem;
-    }
+    // .left-column {
+    //   display: flex;
+    //   flex-direction: column;
+    //   width: 50%;
+    //   padding-right: 1rem;
+    // }
 
-    .right-column {
-      display: flex;
-      flex-direction: column;
-      width: 50%;
-      padding-left: 1rem;
-    }
+    // .right-column {
+    //   display: flex;
+    //   flex-direction: column;
+    //   width: 50%;
+    //   padding-left: 1rem;
+    // }
 
     .button-area {
       width: 100%;
@@ -252,7 +257,6 @@
   h2 {
     display: inline-block;
     width: 100%;
-    font-size: 1.2rem;
     margin-bottom: 3rem;
   }
 
@@ -282,13 +286,104 @@
     }
 
     button {
-      padding: 5px 8px;
+      padding: 5px 20px;
       border-radius: 0.5em;
       margin: 0.2rem 1rem;
       color: #4d4b4b;
       font-size: 1rem;
-      font-weight: 200;
+      font-weight: bold;
       background: #35bbdd7e;
+    }
+    .delete-button {
+      background: rgba(206, 87, 87, 0.774);
+    }
+  }
+}
+
+// DETAIL WINDOW
+.detail-container {
+  margin: 3rem;
+  box-shadow: 4px 3px 5px 4px #87888a54;
+  border-radius: 1em;
+
+  .map-container {
+    .map {
+      border-radius: 1em;
+    }
+  }
+
+  .info-container {
+    display: flex;
+    padding: 2rem;
+    .left-column {
+      width: 50%;
+
+      h2 {
+        padding-bottom: 1rem;
+      }
+
+      .dynamic-text {
+        padding-left: 1rem;
+        font-weight: 300;
+      }
+    }
+    .right-column {
+      width: 50%;
+
+      p {
+        padding: 1rem 0;
+      }
+    }
+  }
+}
+
+// TechList
+.techs-wrapper {
+  width: 100%;
+  height: 100%;
+  padding: 2rem 4rem;
+
+  max-width: 1400px;
+  margin: auto;
+
+  h2 {
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+
+  .techs-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    .tech-card {
+      height: 280px;
+      width: 200px;
+      border-radius: 1em;
+      box-shadow: 4px 3px 5px 4px #87888a54;
+      margin: 0 2rem;
+
+      img {
+        width: 100%;
+        height: 60%;
+        border-radius: 1em;
+      }
+
+      .info-box {
+        padding: 1rem;
+
+        h3 {
+          font-size: 1.1rem;
+          margin-bottom: 0.4rem;
+        }
+
+        .primary-text {
+          font-size: 0.8rem;
+          color: #dd5735;
+          font-weight: 400;
+          padding-right: 5px;
+        }
+      }
     }
   }
 }

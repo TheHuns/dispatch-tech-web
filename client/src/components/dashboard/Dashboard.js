@@ -20,7 +20,7 @@ function Dashboard() {
 
   return (
     <div className="dashboard-wrapper">
-      <h3>Dashboard</h3>
+      <h2>Dashboard</h2>
       <div className="card-wrapper">
         <NumberCard
           icon={faTicketAlt}
