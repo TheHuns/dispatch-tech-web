@@ -11,7 +11,7 @@ To get started clone project into a new directory
 Install packages for RestAPI and Client
 
 ```
-  yarn install &&  yarn client-install
+  yarn install && yarn client-install
 ```
  
  Run concurrently to start server and client react app simultaneously
