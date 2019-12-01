@@ -45,6 +45,8 @@ export const deleteTicket = id => dispatch => {
       });
     })
     .catch(err => console.error(err));
+
+  dispatch(getTickets());
 };
 
 export const setDetailTicket = id => dispatch => {
