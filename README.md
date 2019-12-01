@@ -7,6 +7,8 @@ The Web based Admin component of an ticket management system
   * I would store these in a default.json file inside the empty config folder in the root of the project
 
 To get started clone project into a new directory
+***
   yarn install &&  yarn client-install
   
   yarn dev //runs concurrently to start server and client react app simultaneously
+  ***
