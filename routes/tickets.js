@@ -11,7 +11,8 @@ const Ticket = require("../models/Ticket");
 router.get("/", cors(), (req, res) => {
   Ticket.find()
     .sort({ date: -1 })
-    .then(items => res.json(items));
+    .then(items => res.json(items))
+    .catch(err => console.error(err));
 });
 
 // @route POST api/items
