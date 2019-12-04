@@ -31,7 +31,7 @@ mongoose
   .catch(err => console.log(err));
 
 app.use("/tickets", require("./routes/tickets"));
-// app.use("/api/users", require("./routes/api/users"));
+app.use("/users", require("./routes/users"));
 // app.use("/api/auth", require("./routes/api/auth"));
 
 // Server static assets if in production
