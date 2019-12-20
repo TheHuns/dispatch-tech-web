@@ -260,42 +260,31 @@
     margin-bottom: 3rem;
   }
 
-  .ticket-container {
-    width: 90%;
-    display: flex;
-    margin-bottom: 1rem;
-    border: 1px solid #b2b2b250;
-    box-shadow: 3px 2px 2px 2px #b2b2b293;
-    border-radius: 0.5em 0.5em;
-    align-items: center;
-    padding: 0.6rem;
+  .ticket-table {
+    text-align: center;
+    border-collapse: collapse;
+    border: 2px solid #ddd;
+    width: 100%;
 
-    h3 {
-      font-size: 0.8rem;
-      padding: 0 1rem;
+    td,
+    th {
+      border: 1px solid #ddd;
+      padding: 8px;
     }
 
-    .name,
-    .address,
-    .service {
-      width: 25%;
-
-      strong {
-        font-size: 0.8rem;
-      }
+    tr:nth-child(even) {
+      background-color: #f2f2f2;
     }
 
-    button {
-      padding: 5px 20px;
-      border-radius: 0.5em;
-      margin: 0.2rem 1rem;
-      color: #4d4b4b;
-      font-size: 1rem;
-      font-weight: bold;
-      background: #35bbdd7e;
+    tr:hover {
+      background-color: #ddd;
     }
-    .delete-button {
-      background: rgba(206, 87, 87, 0.774);
+
+    th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      background-color: #dd5735;
+      color: #fff;
     }
   }
 }
