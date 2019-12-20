@@ -1,5 +1,4 @@
 import React from "react";
-import Ticket from "./Ticket";
 import { connect } from "react-redux";
 
 import { getTickets } from "../../store/actions/tickets";
@@ -30,21 +29,32 @@ class Search extends React.Component {
       <div className="ticket-list-wrapper">
         <h2>Current Open Tickets</h2>
 
-        {tickets.map((ticket, index) => {
-          return (
-            <Ticket
-              index={index}
-              key={index}
-              name={ticket.name}
-              date={ticket.dateRequested}
-              service={ticket.serviceRequested}
-              autoAddress={ticket.autoAddress}
-              id={ticket._id}
-              handleModalOpen={this.handleModalOpen}
-              history={this.props.history}
-            />
-          );
-        })}
+        <table className="ticket-table">
+          <tbody>
+            <tr>
+              <th>Name</th>
+              <th>Address</th>
+              <th>Service</th>
+              <th>Date Requested</th>
+            </tr>
+            {tickets.map((ticket, index) => {
+              const {
+                name,
+                autoAddress,
+                serviceRequested,
+                dateRequested
+              } = ticket; //destructuring
+              return (
+                <tr key={index}>
+                  <td>{name}</td>
+                  <td>{autoAddress}</td>
+                  <td>{serviceRequested}</td>
+                  <td>{dateRequested}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
