@@ -110,7 +110,11 @@ class TicketForm extends React.Component {
                       : "suggestion-item";
                     // inline style for demonstration purpose
                     const style = suggestion.active
-                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                      ? {
+                          backgroundColor: "#dd5735",
+                          cursor: "pointer",
+                          color: "#fff"
+                        }
                       : { backgroundColor: "#ffffff", cursor: "pointer" };
                     return (
                       <div
