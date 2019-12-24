@@ -246,22 +246,18 @@
 .ticket-form-wrapper form .autocomplete-address {
   width: 100%;
   margin: 0;
+  position: relative;
 }
 
-.ticket-form-wrapper form .react-datetime-picker__wrapper {
-  border: none;
-  border-bottom: 0.5px solid #b2b2b293;
-  -webkit-box-shadow: -1px 3px 3px 0 #b2b2b293;
-          box-shadow: -1px 3px 3px 0 #b2b2b293;
-  width: 100%;
-  margin-bottom: 1rem;
+.ticket-form-wrapper form .autocomplete-address .autocomplete-dropdown-container {
+  position: absolute;
+  top: 45px;
 }
 
-.ticket-form-wrapper form .react-datetime-picker__wrapper input {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  padding: 0 5px;
+.ticket-form-wrapper form .autocomplete-address .autocomplete-dropdown-container > div {
+  padding: 10px 12px;
+  border: 1px solid #888;
+  border-radius: 4px;
 }
 
 .ticket-form-wrapper form .button-area {
