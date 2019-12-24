@@ -6,7 +6,7 @@ import PlacesAutocomplete from "react-places-autocomplete";
 import { geocodeByAddress, getLatLng } from "react-places-autocomplete";
 
 class TicketForm extends React.Component {
-  state = {
+  state = { 
     name: "",
     lat: null,
     long: null,
@@ -110,7 +110,7 @@ class TicketForm extends React.Component {
                       : "suggestion-item";
                     // inline style for demonstration purpose
                     const style = suggestion.active
-                      ? { backgroundColor: "#fafafa", cursor: "pointer" }
+                      ? { backgroundColor: "#dd5735", cursor: "pointer", color: "#fff" }
                       : { backgroundColor: "#ffffff", cursor: "pointer" };
                     return (
                       <div
