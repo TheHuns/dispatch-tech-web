@@ -14,6 +14,7 @@
   overflow: hidden;
   -ms-grid-columns: auto 1fr;
       grid-template-columns: auto 1fr;
+  background: #f6f6f6;
 }
 
 .navbar-wrapper {
@@ -246,22 +247,18 @@
 .ticket-form-wrapper form .autocomplete-address {
   width: 100%;
   margin: 0;
+  position: relative;
 }
 
-.ticket-form-wrapper form .react-datetime-picker__wrapper {
-  border: none;
-  border-bottom: 0.5px solid #b2b2b293;
-  -webkit-box-shadow: -1px 3px 3px 0 #b2b2b293;
-          box-shadow: -1px 3px 3px 0 #b2b2b293;
-  width: 100%;
-  margin-bottom: 1rem;
+.ticket-form-wrapper form .autocomplete-address .autocomplete-dropdown-container {
+  position: absolute;
+  top: 50%;
 }
 
-.ticket-form-wrapper form .react-datetime-picker__wrapper input {
-  border: none;
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  padding: 0 5px;
+.ticket-form-wrapper form .autocomplete-address .autocomplete-dropdown-container div {
+  border: 1px solid #ddd;
+  padding: 4px 16px;
+  border-radius: 3px;
 }
 
 .ticket-form-wrapper form .button-area {
@@ -329,6 +326,10 @@
 
 .ticket-list-wrapper .ticket-table tr:nth-child(even) {
   background-color: #f2f2f2;
+}
+
+.ticket-list-wrapper .ticket-table tr:nth-child(odd) {
+  background-color: #fff;
 }
 
 .ticket-list-wrapper .ticket-table tr:hover {
