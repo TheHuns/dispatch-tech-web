@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const GET_TICKETS = "GET_TICKETS";
+export const GET_OPEN_TICKETS = "GET_OPEN_TICKETS";
 export const ADD_TICKET = "ADD_TICKET";
 export const DELETE_TICKET = "DELETE_TICKET";
 export const SET_DETAIL_TICKET = "SET_DETAIL_TICKET";
@@ -11,6 +12,18 @@ export const getTickets = () => dispatch => {
     .then(res =>
       dispatch({
         type: GET_TICKETS,
+        payload: res.data
+      })
+    )
+    .catch(err => console.error(err));
+};
+
+export const getOpenTickets = () => dispatch => {
+  axios
+    .get("/tickets/open")
+    .then(res =>
+      dispatch({
+        type: GET_OPEN_TICKETS,
         payload: res.data
       })
     )

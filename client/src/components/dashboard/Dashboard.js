@@ -7,16 +7,21 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import MapComponent from "./Map";
 import { useSelector, useDispatch, connect } from "react-redux";
-import { getTickets } from "../../store/actions/tickets";
+import { getTickets, getOpenTickets } from "../../store/actions/tickets";
 
 function Dashboard() {
   const dispatch = useDispatch();
+  const tickets = useSelector(state => state.tickets.tickets);
+  const openTickets = useSelector(state => state.tickets.openTickets)
 
   useEffect(() => {
     dispatch(getTickets());
-  });
+  }, []);
+  
+  useEffect(() => {
+    dispatch(getOpenTickets())
+  }, [])
 
-  const tickets = useSelector(state => state.tickets.tickets);
 
   return (
     <div className="dashboard-wrapper">
@@ -24,13 +29,13 @@ function Dashboard() {
       <div className="card-wrapper">
         <NumberCard
           icon={faTicketAlt}
-          count={tickets.length}
+          count={openTickets.length}
           name="Open Tickets"
           grid="1"
         />
         <NumberCard
           icon={faChartBar}
-          count="76"
+          count={tickets.length}
           name="Total Tickets"
           grid="2"
           style={{ backgroundColor: "#3d3d3d" }}

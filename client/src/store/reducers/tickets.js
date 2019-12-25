@@ -2,11 +2,13 @@ import {
   GET_TICKETS,
   ADD_TICKET,
   DELETE_TICKET,
-  SET_DETAIL_TICKET
+  SET_DETAIL_TICKET,
+  GET_OPEN_TICKETS
 } from "../actions/tickets";
 
 const initialState = {
   tickets: [],
+  openTickets: [],
   detailTicket: null
 };
 
@@ -17,6 +19,12 @@ export default (state = initialState, action) => {
         ...state,
         tickets: action.payload
       };
+
+      case GET_OPEN_TICKETS:
+        return {
+          ...state,
+          openTickets: action.payload
+        };
 
     case ADD_TICKET:
       return { ...state };

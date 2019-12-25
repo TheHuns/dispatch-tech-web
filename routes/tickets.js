@@ -5,8 +5,8 @@ const cors = require("cors");
 // Item model
 const Ticket = require("../models/Ticket");
 
-// @route GET api/items
-// @desc Get all items
+// @route GET /tickets
+// @desc Get all tickets
 // @access Public
 router.get("/", cors(), (req, res) => {
   Ticket.find()
@@ -14,6 +14,15 @@ router.get("/", cors(), (req, res) => {
     .then(items => res.json(items))
     .catch(err => console.error(err));
 });
+
+// @route GET /tickets/open
+// @desc Get open tickets only
+// @access public
+router.get('/open', (req, res) => {
+  Ticket.find({"isOpen": "true"})
+  .then(tickets => res.json(tickets))
+  .catch(err => console.error(err))
+})
 
 // @route POST api/items
 // @desc Create a POST
