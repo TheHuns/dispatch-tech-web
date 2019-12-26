@@ -338,6 +338,33 @@
   color: #fff;
 }
 
+.ticket-list-wrapper .ticket-table .action-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.ticket-list-wrapper .ticket-table .action-column .details-button {
+  background: #dd573593;
+  color: #fff;
+  margin-right: 4px;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+
+.ticket-list-wrapper .ticket-table .action-column .delete-button {
+  background: red;
+  color: #fff;
+  padding: 3px 5px;
+  border-radius: 4px;
+}
+
 .detail-container {
   margin: 3rem;
   -webkit-box-shadow: 4px 3px 5px 4px #87888a54;

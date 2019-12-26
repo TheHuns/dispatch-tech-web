@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getTickets } from "../../store/actions/tickets";
+import { getTickets, deleteTicket, setDetailTicket } from "../../store/actions/tickets";
 
 class Search extends React.Component {
   state = {
@@ -36,13 +36,15 @@ class Search extends React.Component {
               <th>Address</th>
               <th>Service</th>
               <th>Date Requested</th>
+              <th>Actions</th>
             </tr>
             {tickets.map((ticket, index) => {
               const {
                 name,
                 autoAddress,
                 serviceRequested,
-                dateRequested
+                dateRequested,
+                id
               } = ticket; //destructuring
               return (
                 <tr key={index}>
@@ -50,6 +52,7 @@ class Search extends React.Component {
                   <td>{autoAddress}</td>
                   <td>{serviceRequested}</td>
                   <td>{dateRequested}</td>
+                  <td className='action-column'><button className='details-button' onClick={id => this.props.setDetailTicket(id)}>Details</button><button className='delete-button' onClick={id => this.props.deleteTicket(id)}>X</button></td>          
                 </tr>
               );
             })}
@@ -64,7 +67,9 @@ const mapStateToProps = state => {
   return { tickets: state.tickets };
 };
 const mapDispatchToProps = {
-  getTickets
+  getTickets,
+  deleteTicket,
+  setDetailTicket
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
