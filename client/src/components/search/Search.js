@@ -15,10 +15,9 @@ class Search extends React.Component {
     setTimeout(this.setState({ isLoading: false }), 3000);
   }
 
-  handleModalOpen = () => {
-    this.setState({
-      isModalOpen: !this.state.isModalOpen
-    });
+  handleDetailticket = async (id) => {
+    await this.props.setDetailTicket(id);
+    this.props.history.push('/details')
   };
 
   render() {
@@ -44,15 +43,15 @@ class Search extends React.Component {
                 autoAddress,
                 serviceRequested,
                 dateRequested,
-                id
+                _id
               } = ticket; //destructuring
               return (
                 <tr key={index}>
                   <td>{name}</td>
                   <td>{autoAddress}</td>
                   <td>{serviceRequested}</td>
-                  <td>{dateRequested}</td>
-                  <td className='action-column'><button className='details-button' onClick={id => this.props.setDetailTicket(id)}>Details</button><button className='delete-button' onClick={id => this.props.deleteTicket(id)}>X</button></td>          
+                  <td>{dateRequested}</td>                
+                  <td><div className='action-column'><button className='details-button' onClick={() => this.handleDetailticket(_id)}>Details</button><button className='delete-button' onClick={() => this.props.deleteTicket(_id)}>X</button></div></td>          
                 </tr>
               );
             })}
