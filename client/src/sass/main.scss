@@ -269,6 +269,32 @@
       background-color: #dd5735;
       color: #fff;
     }
+
+    .action-column{
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100%;
+      justify-items: center;
+      align-items: center;
+      border: none;
+      
+
+      .details-button{
+        background: #dd573593;
+        color: #fff;
+        margin-right: 4px;
+        padding: 3px 5px;
+        border-radius: 4px;
+      }
+
+      .delete-button{
+        background: red;
+        color: #fff;
+        padding: 3px 5px;
+        border-radius: 4px;
+      }
+    }
   }
 }
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { getTickets } from "../../store/actions/tickets";
+import { getTickets, deleteTicket, setDetailTicket } from "../../store/actions/tickets";
 
 class Search extends React.Component {
   state = {
@@ -15,10 +15,9 @@ class Search extends React.Component {
     setTimeout(this.setState({ isLoading: false }), 3000);
   }
 
-  handleModalOpen = () => {
-    this.setState({
-      isModalOpen: !this.state.isModalOpen
-    });
+  handleDetailticket = async (id) => {
+    await this.props.setDetailTicket(id);
+    this.props.history.push('/details')
   };
 
   render() {
@@ -36,20 +35,23 @@ class Search extends React.Component {
               <th>Address</th>
               <th>Service</th>
               <th>Date Requested</th>
+              <th>Actions</th>
             </tr>
             {tickets.map((ticket, index) => {
               const {
                 name,
                 autoAddress,
                 serviceRequested,
-                dateRequested
+                dateRequested,
+                _id
               } = ticket; //destructuring
               return (
                 <tr key={index}>
                   <td>{name}</td>
                   <td>{autoAddress}</td>
                   <td>{serviceRequested}</td>
-                  <td>{dateRequested}</td>
+                  <td>{dateRequested}</td>                
+                  <td><div className='action-column'><button className='details-button' onClick={() => this.handleDetailticket(_id)}>Details</button><button className='delete-button' onClick={() => this.props.deleteTicket(_id)}>X</button></div></td>          
                 </tr>
               );
             })}
@@ -64,7 +66,9 @@ const mapStateToProps = state => {
   return { tickets: state.tickets };
 };
 const mapDispatchToProps = {
-  getTickets
+  getTickets,
+  deleteTicket,
+  setDetailTicket
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Search);
