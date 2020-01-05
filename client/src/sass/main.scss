@@ -73,20 +73,29 @@
   background: #2f3031;
   display: flex;
   justify-content: flex-end;
-  padding-right: 2rem;
+  padding-right: 4rem;
   align-items: center;
 
-  img {
-    border-radius: 50%;
+  button {
+    padding: 5px 20px;
+    background: #dd5735;
+    border: 1px solid #d8453b;
+    color: #fff;
+    font-weight: 600;
+    box-shadow: 2px 2px 2px #dd5735;
+    cursor: pointer;
+    border-radius: 3px;
   }
 
-  h5,
-  p {
-    color: #f4f4f4;
-    padding: 0 1rem;
-  }
-  p {
-    font-size: 0.9rem;
+  .user-info {
+    display: flex;
+    align-items: center;
+
+    p {
+      color: #f4f4f4;
+      padding: 0 2rem;
+      margin: 0;
+    }
   }
 }
 
@@ -186,19 +195,17 @@
       margin: 0;
       position: relative;
 
-      .autocomplete-dropdown-container{
+      .autocomplete-dropdown-container {
         position: absolute;
         top: 45px;
 
-        & > div{
+        & > div {
           padding: 10px 12px;
           border: 1px solid #888;
           border-radius: 4px;
         }
       }
     }
-    
-
 
     .button-area {
       width: 100%;
@@ -270,7 +277,7 @@
       color: #fff;
     }
 
-    .action-column{
+    .action-column {
       padding: 0;
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -278,9 +285,8 @@
       justify-items: center;
       align-items: center;
       border: none;
-      
 
-      .details-button{
+      .details-button {
         background: #dd573593;
         color: #fff;
         margin-right: 4px;
@@ -288,7 +294,7 @@
         border-radius: 4px;
       }
 
-      .delete-button{
+      .delete-button {
         background: red;
         color: #fff;
         padding: 3px 5px;

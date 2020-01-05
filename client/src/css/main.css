@@ -99,24 +99,37 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
-  padding-right: 2rem;
+  padding-right: 4rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.header img {
-  border-radius: 50%;
+.header button {
+  padding: 5px 20px;
+  background: #dd5735;
+  border: 1px solid #d8453b;
+  color: #fff;
+  font-weight: 600;
+  -webkit-box-shadow: 2px 2px 2px #dd5735;
+          box-shadow: 2px 2px 2px #dd5735;
+  cursor: pointer;
+  border-radius: 3px;
 }
 
-.header h5,
-.header p {
+.header .user-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.header .user-info p {
   color: #f4f4f4;
-  padding: 0 1rem;
-}
-
-.header p {
-  font-size: 0.9rem;
+  padding: 0 2rem;
+  margin: 0;
 }
 
 .dashboard-wrapper {
