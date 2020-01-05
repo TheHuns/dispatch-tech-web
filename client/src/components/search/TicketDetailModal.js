@@ -9,7 +9,12 @@ export default function TicketDetailModal() {
   return (
     <div className="detail-container">
       <div className="map-container">
-        <Map className="map" center={[37.25, -107.6997]} zoom={11} height={400}>
+        <Map
+          className="map"
+          center={[ticket.lat, ticket.lng]}
+          zoom={11}
+          height={400}
+        >
           <Marker anchor={[ticket.lat, ticket.lng]} key={ticket.index} />
         </Map>
       </div>
