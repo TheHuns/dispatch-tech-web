@@ -6,7 +6,7 @@ The Web based Admin component of an ticket management system
 
   * To use you will need your own MongoDB url or some reconfiguring to use a different db 
   * A google places API key will also be needed
-  * I would store these in a default.json file inside the empty config folder in the root of the project
+  * I would store these in a `default.json` file inside a directoty named `config` in the root of the project
 
 To get started clone project into a new directory
 
