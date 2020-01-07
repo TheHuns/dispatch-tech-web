@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useAuth0 } from "../react-auth0-spa";
 
 export default function Header() {
@@ -10,6 +10,10 @@ export default function Header() {
     loading
   } = useAuth0();
 
+  useEffect(user => {
+    console.log(user);
+  }, []);
+
   if (loading) return <div className="header">Fetching User...</div>;
 
   return (
@@ -20,6 +24,7 @@ export default function Header() {
 
       {isAuthenticated && (
         <div className="user-info">
+          <img src={user.picture} alt="User Avatar" />
           <p>{user.name}</p>
           <button onClick={() => logout()}>Log out</button>
         </div>

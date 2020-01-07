@@ -1,9 +1,9 @@
-import React, {useEffect} from "react";
+import React from "react";
 import "./css/main.css";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router } from "react-router-dom";
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { Provider, useDispatch } from "react-redux";
+import { Provider } from "react-redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 
@@ -20,8 +20,6 @@ const store = createStore(
 );
 
 function App() {
-  
-
   return (
     <Provider store={store}>
       <Router>

@@ -12,16 +12,15 @@ import { getTickets, getOpenTickets } from "../../store/actions/tickets";
 function Dashboard() {
   const dispatch = useDispatch();
   const tickets = useSelector(state => state.tickets.tickets);
-  const openTickets = useSelector(state => state.tickets.openTickets)
+  const openTickets = useSelector(state => state.tickets.openTickets);
 
   useEffect(() => {
     dispatch(getTickets());
   }, []);
-  
-  useEffect(() => {
-    dispatch(getOpenTickets())
-  }, [])
 
+  useEffect(() => {
+    dispatch(getOpenTickets());
+  }, []);
 
   return (
     <div className="dashboard-wrapper">
