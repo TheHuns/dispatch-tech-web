@@ -10,9 +10,12 @@ export default function Header() {
     loading
   } = useAuth0();
 
-  useEffect(user => {
-    console.log(user);
-  }, []);
+  useEffect(
+    user => {
+      console.log(user);
+    },
+    [user]
+  );
 
   if (loading) return <div className="header">Fetching User...</div>;
 

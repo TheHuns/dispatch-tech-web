@@ -14,10 +14,6 @@ const UserSchema = new Schema({
   tickets: {
     type: Array,
     default: []
-  },
-  deviceId: {
-    type: String,
-    required: true
   }
 });
 

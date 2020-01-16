@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 // route GET /users/findone
 // Returns user if one exists for a specific device (native)
 router.post("/findone", (req, res) => {
-  User.find({ deviceId: req.body.deviceId })
+  User.findById(req.body.id)
     .then(user => res.json(user))
     .catch(err => console.error(err));
 });
@@ -24,8 +24,7 @@ router.post("/findone", (req, res) => {
 router.post("/", (req, res) => {
   const newUser = new User({
     name: req.body.name,
-    password: req.body.password,
-    deviceId: req.body.deviceId
+    password: req.body.password
   });
 
   newUser.save().then(user => res.json(user));
